@@ -14,7 +14,7 @@ variable "storage" {
 variable "storage_type" {
   type        = string
   default     = "gp2"
-  description = "type of the storage"
+  description = "The type of the storage"
 }
 
 variable "engine" {
@@ -26,7 +26,7 @@ variable "engine" {
 variable "engine_version" {
   default     = "5.7"
   type        = number
-  description = "The engine version"
+  description = "The engine version for database"
 }
 
 variable "instance_type" {
