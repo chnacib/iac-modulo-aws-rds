@@ -3,9 +3,9 @@ module "vpc" {
   version = "2.77.0"
 
   name                 = "wordpress"
-  cidr                 = "10.11.0.0/16"
+  cidr                 = "10.10.0.0/16"
   azs                  = ["us-west-1a", "us-west-1b"]
-  public_subnets       = ["10.11.1.0/24", "10.11.2.0/24"]
+  public_subnets       = ["10.10.1.0/24", "10.10.2.0/24"]
   enable_dns_hostnames = true
   enable_dns_support   = true
 }
