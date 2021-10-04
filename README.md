@@ -1,9 +1,7 @@
 # This Terraform deploy AWS RDS MySQL.
 
 This Terraform:
-* Create VPC.
 * Create Sub-net.
-* Create Internet Gateway.
 * Configure rule of securety group.
 * Create RDS MySQL
 
