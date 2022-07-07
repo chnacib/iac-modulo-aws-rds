@@ -26,3 +26,5 @@ resource "aws_security_group" "sg_rds" {
 
   tags = var.default_tags
 }
+
+ 
