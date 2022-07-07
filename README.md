@@ -120,7 +120,7 @@ module "rds_mariaquiteria" {
 ```
 
 ### Provisionando RDS e SSM
-Após preencher os valores requiridos utilize os comandos abaixo para provisonar cluster e suas aplicação.
+Após preencher os valores requiridos utilize os comandos abaixo para provisonar RDS e SSM.
 
 ```shell
 terraform init 
