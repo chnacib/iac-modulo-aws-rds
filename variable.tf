@@ -1,10 +1,8 @@
-####  The variables for backend ####
 variable "aws_region" {
-  default     = "us-west-1"
+  default     = "us-east-1"
   description = "Region of Amazon AWS"
 }
 
-#### The variables for RDS
 variable "storage" {
   type        = number
   default     = 20
@@ -19,12 +17,12 @@ variable "storage_type" {
 
 variable "engine" {
   type        = string
-  default     = "mysql"
+  default     = "postgres"
   description = "The database engine"
 }
 
 variable "engine_version" {
-  default     = "5.7"
+  default     = "12.7"
   type        = number
   description = "The engine version for database"
 }
@@ -35,39 +33,31 @@ variable "instance_type" {
   description = "The RDS instance class"
 }
 
-variable "name" {
-  default     = "wordpress"
-  type        = string
-  description = "The database name"
-}
-
-variable "username" {
-  default     = "databaseteste"
+variable "db_username" {
+  default     = "mariaquiteriaadmin"
   type        = string
   description = "Username of the database"
 }
 
-variable "password" {
-  default     = "metal.corp123"
-  type        = string
-  sensitive   = true
-  description = "Password of the database"
+variable "db_name" {
+  default = "mariaquiteria"
+  type = string
 }
 
 variable "port" {
-  default     = "3306"
+  default     = "5432"
   type        = number
   description = "The database port"
 }
 
 variable "identifier" {
-  default     = "database-rapadura"
+  default     = "database-mariaquiteria"
   type        = string
   description = "The name of the RDS instance"
 }
 
 variable "parameter_group_name" {
-  default     = "default.mysql5.7"
+  default     = "default.postgres12"
   type        = string
   description = "Name of the DB parameter group to associate"
 }
@@ -78,26 +68,39 @@ variable "snapshot" {
   description = "skip snapshot"
 }
 
-variable "ingress_ports" {
-  type        = list(number)
-  default     = [3306]
-  description = "List of ingress ports"
-}
-
-variable "egress_ports" {
-  type        = list(number)
-  default     = [3306]
-  description = "List of egress ports"
-}
-
 variable "default_tags" {
   type = map(any)
   default = {
-    Name : "RDS_Wordpress",
-    Team : "IAC",
-    Application : "Rapadura",
+    Name : "RDS_mariaquiteria",
+    Team : "Mentoria-IAC",
+    Application : "maria-quiteria",
     Environment : "Production",
     Terraform : "Yes",
-    Owner : "Metal.Corp"
+    Owner : "Mentoria-IAC"
   }
+}
+
+variable "parameters" {
+  type = list(
+    object({
+      type        = string,
+      name        = string,
+      description = string,
+      value       = string,
+    })
+  )
+  default = []
+}
+
+variable "subnet_ids"{
+  type = list(string)
+}
+
+variable "proj_name" {
+  type = string
+  default = "mariaquiteria"
+}
+
+variable "vpc_id" {
+  type = string
 }
